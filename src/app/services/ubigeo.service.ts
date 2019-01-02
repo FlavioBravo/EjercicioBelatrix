@@ -18,7 +18,7 @@ export class UbigeoService {
   getDepartments() {
     return this.http.get(this.fileRoot, { responseType: "text" }).pipe(
       map(data => {
-        const tmpList = data.split("\n");
+        const tmpList = data.replace(/['"]+/g, '').split("\n");
         let divisionIndex = 0;
         let finalIndex = 0;
         for (let index = 0; index < tmpList.length; index++) {
@@ -40,7 +40,7 @@ export class UbigeoService {
   getProvinces() {
     return this.http.get(this.fileRoot, { responseType: "text" }).pipe(
       map(data => {
-        const tmpList = data.split("\n");
+        const tmpList = data.replace(/['"]+/g, '').split("\n");
         let divisionIndex = 0;
         let finalIndex = 0;
         for (let index = 0; index < tmpList.length; index++) {
@@ -67,7 +67,7 @@ export class UbigeoService {
   getDistricts() {
     return this.http.get(this.fileRoot, { responseType: "text" }).pipe(
       map(data => {
-        const tmpList = data.split("\n");
+        const tmpList = data.replace(/['"]+/g, '').split("\n");
         let divisionIndex = 0;
         let finalIndex = 0;
         for (let index = 0; index < tmpList.length; index++) {
