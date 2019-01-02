@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row text-center">
+        <div class="col-10">
+            <h3>{{ title }}</h3>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-10">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Codigo Padre</th>
+                        <th scope="col">Descripcion Padre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let deparment of DeparmentList">
+                        <th scope="row">{{ deparment.id }}</th>
+                        <td>{{ deparment.name }}</td>
+                        <td> - </td>
+                        <td> - </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Codigo Padre</th>
+                        <th scope="col">Descripcion Padre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let province of ProvinceList">
+                        <th scope="row">{{ province.id }}</th>
+                        <td>{{ province.name }}</td>
+                        <td>{{ province.parentId }}</td>
+                        <td>{{ province.parentId | departmentName: DeparmentList }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Codigo Padre</th>
+                        <th scope="col">Descripcion Padre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let district of DistrictList">
+                        <th scope="row">{{ district.id }}</th>
+                        <td>{{ district.name }}</td>
+                        <td>{{ district.parentId }}</td>
+                        <td>{{ district.parentId | provinceName: ProvinceList }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
